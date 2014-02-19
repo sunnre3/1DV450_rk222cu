@@ -1,4 +1,5 @@
 TOERH::Application.routes.draw do
+  get "front_page/Index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +54,21 @@ TOERH::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  # User routes.
+  resources :users
+
+  # Session routes, eg. login and logout.
+  get  'login'  => 'login#index',  :as => 'login_page'
+  post 'login'  => 'login#login',  :as => 'login'
+  get  'logout' => 'logout#index', :as => 'logout'
+
+  # ControlPanel routes.
+  get 'controlpanel' => 'control_panel#index', :as => 'control_panel'
+
+  # Apps routes.
+  resources :apps, :path => 'app'
+
+  # Matches root catalog. Eg. "/"
+  root 'front_page#Index'
 end

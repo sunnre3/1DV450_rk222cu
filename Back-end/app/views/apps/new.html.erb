@@ -1,0 +1,39 @@
+<header class="sub-header">
+	<h2>Registrera ny applikation</h2>
+</header>
+
+<div id="form">
+
+	<% if @app.errors.any? %>
+		<div id="form-errors">
+			<p class="bold">
+				<%= pluralize(@app.errors.count, 'fel', 'fel') %> i formuläret gjorde att registreringen misslyckades. Rätta till dessa och 
+				försök igen.
+			</p>
+
+			<ul>
+				<% @app.errors.full_messages.each do |msg| %>
+					<li class="form-error"><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<%= form_for @app, url: {controller: 'apps', action: 'create'} do |f| %>
+
+		<div class="form-row">
+			<%= f.label :contact_email %>
+			<%= f.text_field :contact_email %>
+		</div>
+
+		<div class="form-row">
+			<%= f.label :name %>
+			<%= f.text_field :name %>
+		</div>
+
+		<div class="form-row">
+			<%= f.submit "Registrera applikation", :class => 'btn btn-green' %>
+		</div>
+
+	<% end %>
+</div>

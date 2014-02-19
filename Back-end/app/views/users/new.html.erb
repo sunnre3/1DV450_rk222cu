@@ -1,0 +1,54 @@
+<header class="sub-header">
+	<h2>Registrera mig</h2>
+</header>
+
+<div id="form">
+
+	<% if @user.errors.any? %>
+		<div id="form-errors">
+			<p class="bold">
+				<%= pluralize(@user.errors.count, 'fel', 'fel') %> i formuläret gjorde att registreringen misslyckades. Rätta till dessa och 
+				försök igen.
+			</p>
+
+			<ul>
+				<% @user.errors.full_messages.each do |msg| %>
+					<li class="form-error"><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<%= form_for @user do |f| %>
+
+		<div class="form-two-column">
+			<%= f.label :firstname %>
+			<%= f.text_field :firstname %>
+		</div>
+
+		<div class="form-two-column">
+			<%= f.label :surname %>
+			<%= f.text_field :surname %>
+		</div>
+
+		<div class="form-two-column">
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+		</div>
+
+		<div class="form-two-column">
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+		</div>
+
+		<div class="form-two-column">
+			<%= f.label :password_confirmation %>
+			<%= f.password_field :password_confirmation %>
+		</div>
+
+		<div class="form-two-column">
+			<%= f.submit "Registrera mig", :class => 'btn btn-green' %>
+		</div>
+
+	<% end %>
+</div>

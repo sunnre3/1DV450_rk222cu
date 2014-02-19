@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+body
+{
+}
+
+#wrapper
+{
+	margin-top: 50px;
+}
+
+header#site-header
+{
+}
+
+header#site-header h1 a
+{
+	font-family: 'Passion One';
+	font-size: 44px;
+	color: #3F385F;
+	text-transform: uppercase;
+}
+
+header#site-header h1 a:hover
+{
+	text-decoration: none;
+}
+
+#main-content
+{
+	margin-top: 20px;
+}
+
+header.sub-header
+{
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #aaa;
+}
+
+header.sub-header h2
+{
+	font-size: 22px;
+	line-height: 22px;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+div.form-two-column
+{
+	margin-bottom: 15px;
+}
+
+div.form-two-column label
+{
+	display: block;
+	float: left;
+	width: 170px;
+	text-align: right;
+	margin-right: 15px;
+}
+
+div.form-two-column input[type=text],
+div.form-two-column input[type=password],
+div.form-two-column input[type=email]
+{
+	display: block;
+	width: 250px;
+}
+
+div.form-two-column input[type=submit]
+{
+	margin-left: 185px;
+}
+
+div.field_with_errors:nth-child(1):after
+{
+	display: block;
+	float: left;
+	margin-right: 8px;
+	margin-left: -16px;
+	content: '*';
+	color: #f00;
+}
+
+div#form-errors
+{
+	font-size: 13px;
+	line-height: 16px;
+	margin-bottom: 15px;
+}
+
+div#form-errors ul
+{
+	margin-left: 20px;	
+}
+
+div#form-errors ul > li
+{
+	list-style-type: disc;
+	margin-bottom: 5px;
+}
+
+div#form-errors ul > li:last-child
+{
+	margin-bottom: 0;
+}

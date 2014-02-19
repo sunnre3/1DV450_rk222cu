@@ -3,7 +3,7 @@ class CreateApiKeys < ActiveRecord::Migration
     create_table :api_keys do |t|
 
     	t.references :application
-    	t.string :auth_token
+    	t.string :auth_token, :null => false
 
       t.timestamps
     end
