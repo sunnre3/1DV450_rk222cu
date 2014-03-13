@@ -1,7 +1,7 @@
 TOERH - WEB API
 ===============
 
-# Readme
+### Read me
 
 In the folder *Registration site* is the web application where a user can register as a developer and recieve an API key. This needs to be running in order for the web API to function properly since we query this application for the API-key to verify that it's valid. As of now it should be running on the same machine as the API server and it should listen to the port 3002. To set port start the server with *rails s --port=3002* in your terminal.
 
