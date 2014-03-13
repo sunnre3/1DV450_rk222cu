@@ -1,0 +1,8 @@
+<div class="centered">
+	<% if !@current_user %>
+		<%= link_to "Registrera som utvecklare", new_user_path, :class => 'btn-wide btn-darkgrey' %>
+	<% else %>
+		<%= link_to 'Kontrollpanel', control_panel_path, :class => 'btn-wide btn-darkgrey' %>
+	<% end %>
+	<a href="#" class="btn-wide btn-darkgrey">Dokumentation</a>
+</div>

@@ -1,0 +1,36 @@
+sv:
+  helpers:
+    label:
+      user:
+        firstname: "Förstanamn"
+        surname: "Efternamn"
+        email: "E-postadress"
+        password: "Lösenord"
+        password_confirmation: "Bekräfta lösenord"
+      application:
+        contact_email: "E-postadress för kontakt"
+        name: "Applikationens namn"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "Du måste ange ett lösenord."
+            firstname:
+              blank: "Du måste ange ett förnamn."
+            surname:
+              blank: "Du måste ange ett efternamn."
+            email:
+              blank: "Du måste ange en e-postadress."
+              invalid: "E-postadressen är inte giltig."
+              taken: "E-postadressen finns redan."
+        application:
+          attributes:
+            name:
+              blank: "Du måste ange ett namn för applikationen."
+            contact_email:
+              blank: "Du måste ange en e-postadress."
+              invalid: "E-postadressen är inte giltig."
+  errors:
+    format: "%{message}"

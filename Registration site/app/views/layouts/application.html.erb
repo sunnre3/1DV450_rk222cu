@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <title>TOERH</title>
+	  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+	  <%= stylesheet_link_tag "reset.css", "unsemantic-grid-responsive.css", "basic.css", "fonts.css", "default.css" %>
+	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	
+	<body>
+		<header id="site-header" class="grid-100">
+			<h1><%= link_to 'TOERH: The web API', root_path %></h1>
+		</header>
+
+		<nav id="main-nav">
+			<ul>
+				<li class="nav-item">
+				<% if session[:userid] %>
+					<%= link_to 'Logga ut', logout_path %>
+				<% else %>
+					<%= link_to 'Logga in', login_page_path %>
+					<%= link_to 'Registrera', new_user_path %>
+				<% end %>
+				</li>
+		</nav>
+		
+		<div id="wrapper" class="grid-container">
+
+			<section id="main-content" class="grid-100">
+				<%= yield %>
+			</section>
+
+		</div>
+	</body>
+</html>

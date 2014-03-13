@@ -1,0 +1,30 @@
+<header class="sub-header">
+	<h2>Kontrollpanel</h2>
+</header>
+
+<% if @user.isAdmin %>
+	<div id="user-list">
+		<ol>
+		<% @users.each do |u| %>
+			<li>
+				<%= u.email %>
+				<%= link_to 'Ta bort', user_path(u), :confirm => 'Är du säker? Detta går inte att ångra!', :method => :delete %>
+			</li>
+		<% end %>
+		</ol>
+	</div>
+<% else %>
+	<div id="application-description">
+		<dl>
+			<dt>API-nyckel</dt>
+			<% if @key %>
+				<dd><%= @key.auth_token %></dd>
+			<% else %>
+				<dd>Du har ingen API-nyckel knuten<br> till ditt konto ännu.</dd>
+			<% end %>
+			
+			<dt>E-postadress för kontakt</dt>
+			<dd><%= @user.email %></dd>
+		</dl>
+	</div>
+<% end %>
