@@ -1,8 +1,6 @@
 TOERH - WEB API
 ===============
 
-# Read me
-
 ## Instructions
 ### Backend
 Both the "Registration site" and the "Web-API" folder has a .bat file named startup which will boot up each server respectively. I recommend starting the registration site first.

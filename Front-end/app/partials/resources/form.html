@@ -1,0 +1,66 @@
+<h2>{{ pageTitle }}</h2>
+
+<div ng-if="$root.successAlert.length > 0" class="alert alert-success">
+	<p>{{ $root.successAlert }}</p>
+</div>
+
+<div ng-if="$root.dangerAlert.length > 0" class="alert alert-danger">
+	<p>{{ $root.dangerAlert }}</p>
+</div>
+
+<form class="form-horizontal" role="form" ng-submit="save(resource)">
+	<div class="form-group">
+		<label for="name" class="col-sm-2 control-label">Namn:</label>
+		<div class="col-sm-10">
+			<input type="text" ng-model="resource.name" class="form-control" id="name" placeholder="Namn">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="name" class="col-sm-2 control-label">URL:</label>
+		<div class="col-sm-10">
+			<input type="url" ng-model="resource.url" class="form-control" id="name" placeholder="URL">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="description" class="col-sm-2 control-label">Beskrvning:</label>
+		<div class="col-sm-10">
+			<textarea ng-model="resource.description" class="form-control" id="description" placeholder="Beskrivning"></textarea>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Resurstyp:</label>
+		<div class="col-sm-10">
+
+			<div data-ng-repeat="resourceType in resourceTypes" class="radio">
+				<label>
+					<input id="resource-type- {{ resourceType.data.id }}" ng-model="resource.resource_type_id" name="resourceType" value="{{ resourceType.data.id }}" type="radio">
+					{{ resourceType.data.type | literalResourceType }}
+				</label>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-sm-2 control-label">Licens:</label>
+		<div class="col-sm-10">
+
+			<div data-ng-repeat="licence in licences" class="radio">
+				<label>
+					<input id="licence- {{ licence.data.id }}" ng-model="resource.licence_id" name="licence" value="{{ licence.data.id }}" type="radio">
+					{{ licence.data.licence_type }}
+				</label>
+			</div>
+			
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default">Spara</button>
+		</div>
+	</div>
+</form>

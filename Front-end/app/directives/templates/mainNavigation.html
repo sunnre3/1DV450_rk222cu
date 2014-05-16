@@ -1,0 +1,68 @@
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">TOERH</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="#/">Senaste</a>
+				</li>
+
+				<li class="dropdown">
+					<a href="" class="dropdown-toggle" data-toggle="dropdown">
+						Resurstyp <b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li ng-repeat="resourceType in resourceTypes">
+							<a href="{{ '#/resource_types/' + resourceType.data.id }}">{{ resourceType.data.type | literalResourceType:true }}</a>
+						</li>
+					</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="" class="dropdown-toggle" data-toggle="dropdown">
+						Licenstyp <b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu">
+						<li ng-repeat="licence in licences">
+							<a href="{{ '#/licences/' + licence.data.id }}">{{ licence.data.licence_type }}</a>
+						</li>
+					</ul>
+				</li>
+
+				<li>
+					<a href="#/new">Ny resurs</a>
+				</li>
+			</ul>
+
+			<div class="navbar-right" style="margin-left: 10px;" ng-switch on="$root.isAuthenticated">
+				<div ng-switch-when="true">
+					<a href="#/users/{{ $root.userId }}" class="btn btn-info navbar-btn">Dina resurser</a>
+					<a href="#/logout/" class="btn btn-info navbar-btn">Logga ut</a>
+				</div>
+
+				<div ng-switch-when="false">
+					<a href="#/login/" class="btn btn-info navbar-btn">Logga in</a>
+				</div>
+			</div>
+
+			<form class="navbar-form navbar-right" role="search" ng-submit="doSearch(search)">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Sök" ng-model="search">
+				</div>
+				<button type="submit" class="btn btn-default">Skicka</button>
+			</form>
+
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>

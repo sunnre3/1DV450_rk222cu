@@ -1,0 +1,9 @@
+<div class="tags" ng-class="{ show: tags.length > 0 }" style="display: none; margin-right: 50px; margin-bottom: 5px;">
+	<ul class="list-inline">
+		<li data-ng-repeat="tag in tags">
+			<span class="label label-info tag">
+				<a href="{{ '#/tags/' + tag.data.id }}">{{ tag.data.tag }}</a>
+			</span>
+		</li>
+	</ul>
+</div>

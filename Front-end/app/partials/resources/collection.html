@@ -1,0 +1,44 @@
+<h2>{{ pageTitle }}</h2>
+
+<div ng-if="resources.length === 0" class=" alert alert-warning">
+	<h1>Fel!</h1>
+
+	<p>Inga resurser hittades.</p>
+</div>
+
+<div ng-if="$root.successAlert.length > 0" class="alert alert-success">
+	<p>{{ $root.successAlert }}</p>
+</div>
+
+<ul class="list-group">
+	<li data-ng-repeat="resource in resources" class="list-group-item {{ resource.data.resourceType.toLowerCase() + '-resource' }}">
+		
+		<h4>{{ resource.data.name }}</h4>
+		<dl class="dl-horizontal">
+			<dt>Beskrivning</dt>
+			<dd>{{ resource.data.description }}</dd>
+
+			<dt>Resurstyp</dt>
+			<resource-type-link x-resource-type-api-link="{{ resource.links.resourceType }}"></resource-type-link>
+
+			<dt>URL</dt>
+			<dd><a href="{{ resource.data.url }}">{{ resource.data.url }}</a></dd>
+
+			<dt>Användare</dt>
+			<user-link x-user-api-link="{{ resource.links.user }}"></user-link>
+
+			<dt>Licens</dt>
+			<dd>{{ resource.data.licence }}</dd>
+		</dl>
+
+		<div ng-if="$root.isAuthenticated">
+			<a href="#/edit/{{ resource.data.id }}">Redigera</a>
+			<a href="#/delete/{{ resource.data.id }}">Ta bort</a>
+		</div>
+
+		<tags resource-id="{{ resource.data.id }}"></tags>
+
+	</li>
+</ul>
+
+<pagination num-pages="noOfPages" current-page="currentPage" class="pagination-large" ng-class="{ hide: noOfPages < 2 }"></pagination>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+	<head>
+		<title>The open education resource handler</title>
+		<meta charset="utf-8">
+
+		<!-- Bootstrap -->
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<!-- Font Awesome -->
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+		<!-- Project specific stylesheet -->
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
+
+	<body ng-controller="applicationController">
+
+		<!-- Topbar & main menu -->
+		<main-navigation></main-navigation>
+
+		<!-- Content -->
+		<div class="container">
+			<div ng-view></div>
+		</div>
+
+		<!-- Underscore -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+
+		<!-- AngularJS core -->
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+
+		<!-- AngularJS core modules -->
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-route.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-animate.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-resource.min.js"></script>
+
+		<!-- Restangular -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/restangular/1.4.0/restangular.min.js"></script>
+
+		<!-- AngularJS app -->
+		<script src="app/app.js"></script>
+
+		<!-- AngularJS filters -->
+		<script src="app/filters/literalResourceType.js"></script>
+		<script src="app/filters/cleanUrl.js"></script>
+
+		<!-- AngularJS controllers -->
+		<script src="app/controllers/applicationController.js"></script>
+		<script src="app/controllers/resourcesController.js"></script>
+		<script src="app/controllers/newResourceController.js"></script>
+		<script src="app/controllers/editResourceController.js"></script>
+		<script src="app/controllers/deleteResourceController.js"></script>
+		<script src="app/controllers/resourceTypesController.js"></script>
+		<script src="app/controllers/licencesController.js"></script>
+		<script src="app/controllers/tagsController.js"></script>
+		<script src="app/controllers/usersController.js"></script>
+		<script src="app/controllers/loginController.js"></script>
+		<script src="app/controllers/logoutController.js"></script>
+		<script src="app/controllers/searchController.js"></script>
+
+		<!-- AngularJS factories/services -->
+		<script src="app/factories/storageService.js"></script>
+		<script src="app/factories/Auth.js"></script>
+
+		<!-- AngularJS directives -->
+		<script src="app/directives/pagination.js"></script>
+		<script src="app/directives/mainNavigation.js"></script>
+		<script src="app/directives/resourceTypeLink.js"></script>
+		<script src="app/directives/userLink.js"></script>
+		<script src="app/directives/tags.js"></script>
+
+		<!-- jQuery (bootstrap depends on it) & Bootstrap JS -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+		<!-- UI Bootstrap -->
+		<!-- <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script> -->
+	</body>
+</html>
