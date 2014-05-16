@@ -2,7 +2,13 @@ class Api::V1::LicencesController < Api::V1::ApiController
 	# GET api/v1/licences.json
 	# GET api/v1/licences.xml
 	def index
-		@licences = Licence.paginate(:page => params[:page])
+		# Check for optional limit parameter.
+		if params[:limit].nil?
+			params[:limit] = params[:default][:limit]
+		end
+
+		# GET /api/v1/licences
+		@licences = Licence.paginate(:page => params[:page], :limit => params[:limit])
 
 		# If no licences was found with the
 		# given id we return a formatted error.

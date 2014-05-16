@@ -1,7 +1,7 @@
 # A collection.
 object false
 
-node :totalTags do |m|
+node :totalItems do |m|
 	@tags.total_entries
 end
 

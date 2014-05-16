@@ -2,5 +2,5 @@
 object false
 
 node :collection do
-	partial 'api/v1/resource_types/masters/collection', object: @resource_type
+	partial 'api/v1/resource_types/masters/collection', object: @resource_types
 end

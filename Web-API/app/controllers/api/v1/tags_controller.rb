@@ -32,10 +32,16 @@ class Api::V1::TagsController < Api::V1::ApiController
 		end
 	end
 	
-	# GET /api/v/tags.json
-	# GET /api/v/tags.xml
+	# GET /api/v1/tags.json
+	# GET /api/v1/tags.xml
 	def index
-		@tags = Tag.paginate(:page => params[:page], :per_page => 5)
+		# Check for optional limit parameter.
+		if params[:limit].nil?
+			params[:limit] = params[:default][:limit]
+		end
+
+		# GET /api/v1/tags
+		@tags = Tag.paginate(:page => params[:page], :per_page => params[:limit])
 
 		# GET api/v1/resources/:resource_id/tags
 		# Return all tags used by a specific resource.

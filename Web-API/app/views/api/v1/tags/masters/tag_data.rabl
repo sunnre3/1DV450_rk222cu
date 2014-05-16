@@ -6,7 +6,7 @@ object @tag
 #node (:href) { |r| api_v1_resource_url(r) } unless locals[:hide_url]
 
 # Add attributes name and description.
-attributes :tag
+attributes :id, :tag
 
 # Finally glue in when the
 # resource was created.

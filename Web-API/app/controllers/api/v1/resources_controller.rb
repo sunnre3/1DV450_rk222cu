@@ -4,7 +4,7 @@ class Api::V1::ResourcesController < Api::V1::ApiController
 	before_filter :check_authentication, :only => [ :create, :update, :destroy ]
 
 	# GET /api/v1/resources/new.json
-	# # GET /api/v1/resources/new.xml
+	# GET /api/v1/resources/new.xml
 	def new
 		@resource = Resource.new
 	end
@@ -28,27 +28,32 @@ class Api::V1::ResourcesController < Api::V1::ApiController
 	# GET /api/v1/licences/{:licence_id}/resources
 	# FORMATS: .json, .xml
 	def index
+		# Check for optional limit parameter.
+		if params[:limit].nil?
+			params[:limit] = params[:default][:limit]
+		end
+
 		# GET /api/v1/resources
-		@resources = Resource.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+		@resources = Resource.search(params[:search]).order('id DESC').paginate(:page => params[:page], :per_page => params[:limit])
 
 		# GET /api/v1/users/{:user_id}/resources
 		if params[:user_id]
-			@resources = Resource.search(params[:search]).where(user_id: params[:user_id]).paginate(:page => params[:page], :per_page => 5)
+			@resources = Resource.search(params[:search]).where(user_id: params[:user_id]).order('id DESC').paginate(:page => params[:page], :per_page => params[:limit])
 		end
 
 		# GET /api/v1/tags/{:tag_id}/resources
 		if params[:tag_id]
-			@resources = Tag.find_by(id: params[:tag_id]).resources.paginate(:page => params[:page], :per_page => 5)
+			@resources = Tag.find_by(id: params[:tag_id]).resources.order('id DESC').paginate(:page => params[:page], :per_page => params[:limit])
 		end
 
 		# GET /api/v1/resource_type/{:resource_type_id}/resources
 		if params[:resource_type_id]
-			@resources = Resource.where(resource_type_id: params[:resource_type_id]).paginate(:page => params[:page], :per_page => 5)
+			@resources = Resource.where(resource_type_id: params[:resource_type_id]).order('id DESC').paginate(:page => params[:page], :per_page => params[:limit])
 		end
 
 		# GET /api/v1/licences/{:licence_id}/resources
 		if params[:licence_id]
-			@resources = Resource.where(licence_id: params[:licence_id]).paginate(:page => params[:page], :per_page => 5)
+			@resources = Resource.where(licence_id: params[:licence_id]).order('id DESC').paginate(:page => params[:page], :per_page => params[:limit])
 		end
 
 		# If no resource was found with the

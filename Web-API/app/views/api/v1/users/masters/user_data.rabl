@@ -6,7 +6,7 @@ object @user
 #node (:href) { |r| api_v1_resource_url(r) } unless locals[:hide_url]
 
 # Add attributes name and description.
-attributes :firstname, :surname, :email
+attributes :id, :firstname, :surname, :email
 
 # Add the number of resources created
 # by the user.

@@ -61,3 +61,6 @@ gem 'foreigner'
 
 # Use 'immigrant'
 gem 'immigrant'
+
+# Use 'rack-cors'
+gem 'rack-cors'

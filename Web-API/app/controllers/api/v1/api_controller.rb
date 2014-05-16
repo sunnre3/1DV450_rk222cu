@@ -1,5 +1,9 @@
 class Api::V1::ApiController < ApplicationController
 	before_filter :check_api_key
+
+	def default_url_options
+		{ format: 'json', limit: 1 }
+	end
 	
 	# Method for handling 404 errors in this
 	# specific API version.
@@ -16,7 +20,7 @@ class Api::V1::ApiController < ApplicationController
 
 		if token
 			require 'net/http'
-			url = URI.parse('http://localhost:3002/api_keys/' + request.headers['Token'])
+			url = URI.parse('http://127.0.0.1:3002/api_keys/' + request.headers['Token'])
 			req = Net::HTTP::Get.new(url.path)
 			res = Net::HTTP.start(url.host, url.port) {
 				|http| http.request(req)

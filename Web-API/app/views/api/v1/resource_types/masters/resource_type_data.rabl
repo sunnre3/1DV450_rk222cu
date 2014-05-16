@@ -6,6 +6,7 @@ object @resource_type
 #node (:href) { |r| api_v1_resource_url(r) } unless locals[:hide_url]
 
 # Add attributes name and description.
+attributes :id
 attributes :resource_type => :type
 
 node :resourceCount do |resource_type|

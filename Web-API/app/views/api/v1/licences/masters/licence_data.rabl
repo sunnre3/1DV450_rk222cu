@@ -6,4 +6,4 @@ object @licence
 #node (:href) { |r| api_v1_resource_url(r) } unless locals[:hide_url]
 
 # Add attributes name and description.
-attributes :licence_type, :created_at
+attributes :id, :licence_type, :created_at

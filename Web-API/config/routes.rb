@@ -2,7 +2,7 @@ WebApi::Application.routes.draw do
 	# Set up namespaces to
 	# seperate API and to make it
 	# easier to handle versioning.
-	namespace :api, :default => { :format => 'json' } do # /api/...
+	namespace :api, :default => { :format => 'json', :limit => 5 } do # /api/...
 		namespace :v1 do # /api/v1/...
 
 			# api/v1/resources
@@ -34,6 +34,10 @@ WebApi::Application.routes.draw do
 				# api/v1/licences//{:licence_id}/resources
 				resources :resources
 			end
+
+			# Session routes, eg. login and logout.
+			post 'login'  => 'login#login',  :as => 'login'
+			get  'logout' => 'logout#index', :as => 'logout'
 
 		end # end namespace /v1/
 	end #end namespace /api/
