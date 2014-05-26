@@ -3,6 +3,17 @@ span.tag a
 	color: #fff;
 }
 
+span.tag:hover
+{
+	cursor: pointer;
+	background: rgba(83, 172, 198, 1);
+}
+
+span.tag a:hover
+{
+	text-decoration: none;
+}
+
 .dl-horizontal dt
 {
 	background: #333;

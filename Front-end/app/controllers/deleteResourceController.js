@@ -1,4 +1,4 @@
-app.controller('deleteResourceController', function ($rootScope, $scope, $timeout, $routeParams, $location, Restangular) {
+app.controller('deleteResourceController', function ($rootScope, $scope, $timeout, $route, $routeParams, $location, Restangular) {
 	Restangular.one('resources', $routeParams.id).remove({}, { 'Authorization': 'Basic ' + $rootScope.token });
 
 	// Set delete message.
@@ -12,4 +12,7 @@ app.controller('deleteResourceController', function ($rootScope, $scope, $timeou
 
 	// Redirect to front-page.
 	$location.url('/');
+
+	// Reload the view.
+	$route.reload();
 });

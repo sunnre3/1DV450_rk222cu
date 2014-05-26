@@ -78,6 +78,10 @@ var app = angular.module('app', ['ngRoute', 'ngAnimate', 'restangular', 'ui.boot
 		else if (operation === 'get') {
 			return data.instance;
 		}
+
+		else {
+			return response;
+		}
 	});
 })
 .constant('AUTH_EVENTS', {
