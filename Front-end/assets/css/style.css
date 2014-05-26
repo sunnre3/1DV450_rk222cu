@@ -2,3 +2,34 @@ span.tag a
 {
 	color: #fff;
 }
+
+.dl-horizontal dt
+{
+	background: #333;
+	color: #fff;
+	padding-right: 10px;
+}
+
+.dl-horizontal dt:nth-of-type(2)
+{
+	padding-top: 8px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.dl-horizontal dt:last-of-type
+{
+	padding-bottom: 8px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.dl-horizontal dd:nth-of-type(2)
+{
+	padding-top: 8px;
+}
+
+.dl-horizontal dd:last-of-type
+{
+	padding-bottom: 8px;
+}

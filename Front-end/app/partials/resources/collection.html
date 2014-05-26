@@ -13,8 +13,10 @@
 <ul class="list-group">
 	<li data-ng-repeat="resource in resources" class="list-group-item {{ resource.data.resourceType.toLowerCase() + '-resource' }}">
 		
-		<h4>{{ resource.data.name }}</h4>
 		<dl class="dl-horizontal">
+			<dt></dt>
+			<dd><h4>{{ resource.data.name }}</h4></dd>
+
 			<dt>Beskrivning</dt>
 			<dd>{{ resource.data.description }}</dd>
 

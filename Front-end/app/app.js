@@ -2,7 +2,7 @@
 var app = angular.module('app', ['ngRoute', 'ngAnimate', 'restangular', 'ui.bootstrap.pagination'])
 .config(function ($routeProvider, RestangularProvider) {
 	// Root.
-	$routeProvider.when('/:page?', {
+	$routeProvider.when('/', {
 		controller: 'resourcesController',
 		templateUrl: 'app/partials/resources/collection.html'
 	}).
